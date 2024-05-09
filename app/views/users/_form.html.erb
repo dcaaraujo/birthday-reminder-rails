@@ -1,0 +1,64 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <article class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</p>
+      </div>
+      <div class="message-body">
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </article>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :first_name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :last_name, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :email, class: "label" %>
+    <div class="control">
+      <%= form.text_field :email, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, class: "label" %>
+    <div class="control">
+      <%= form.password_field :password, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation, class: "label" %>
+    <div class="control">
+      <%= form.password_field :password_confirmation, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthdate, class: "label" %>
+    <div class="control">
+      <%= form.date_field :birthdate, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= form.submit class: "button is-primary" %>    
+    </div>
+  </div>
+<% end %>

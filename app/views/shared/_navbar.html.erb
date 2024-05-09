@@ -1,0 +1,15 @@
+<nav class="navbar" role="navigation">
+  <div class="navbar-end">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <% if user %>
+        <a class="navbar-link"><%= user.fullname %></a>
+        <div class="navbar-dropdown">
+          <hr class="navbar-divider">
+          <%= button_to "Logout", logout_path, method: :delete, class: "navbar-item" %>
+        </div>
+      <% else %>
+        <%= link_to "Login", login_path, class: "button is-primary" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
