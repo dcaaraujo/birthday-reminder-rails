@@ -1,9 +1,5 @@
 class ApplicationController < ActionController::Base
-
-  protected
-
-    def authorize_user
-      return if User.exists?(session[:user_id])
-      redirect_to login_url, notice: "Please log in"
-    end
+  include Authentication
+  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
+  allow_browser versions: :modern
 end

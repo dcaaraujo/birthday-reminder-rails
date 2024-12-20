@@ -13,3 +13,11 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+module LoginHelper
+  extend self
+
+  def login_with(user)
+    post session_url, params: { email_address: user.email_address, password: "password" }
+  end
+end

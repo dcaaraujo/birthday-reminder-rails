@@ -1,13 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :sessions, dependent: :destroy
 
-  # validation
-  validates :first_name, :last_name, :email, :birthdate, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-
-  # methods
-
-  def fullname
-    "#{first_name} #{last_name}"
-  end
+  normalizes :email_address, with: ->(e) { e.strip.downcase }
 end
